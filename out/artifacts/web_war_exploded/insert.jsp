@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>新增雨量检测信息</title>
     <style>
         h3{
             text-align: center;
@@ -66,7 +66,7 @@
     </dl>
     <dl>
         <dt>检测时间：</dt>
-        <dd><input type="text" class="monitorTime" name="monitorTime"/>&nbsp;&nbsp;&nbsp;(yyyy.MM.dd格式)</dd>
+        <dd><input type="text" class="monitorTime" name="monitorTime"/>&nbsp;&nbsp;&nbsp;(yyyy-MM-dd格式)</dd>
     </dl>
     <dl>
         <dt>雨量值(mm)：</dt>

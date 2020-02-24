@@ -46,13 +46,17 @@ public class RainManageServlet extends HttpServlet {
             String id = request.getParameter("id");
             int i = Integer.parseInt(id);
             Boolean delete = service.Delete(i);
+
+            PrintWriter out = response.getWriter();
             if(delete){
-                response.getWriter().write("<script type='text/javascript'>alert('删除成功！');</script>");
-                response.sendRedirect("index.jsp");
+                out.println("<script type='text/javascript' >alert('删除成功!');</script>");
+                out.println("<script>window.location='index.jsp'</script>");
             }else{
-                response.getWriter().write("<script type='text/javascript'>alert('删除失败！');</script>");
-                response.sendRedirect("index.jsp");
+                out.println("<script type='text/javascript' >alert('删除失败!');</script>");
+                //增加失败跳到查询页面
+                out.println("<script>window.location='index.jsp'</script>");
             }
+
         }else if(action.equals("insert")){
             //增加
             String districtName = request.getParameter("districtName");
@@ -81,14 +85,14 @@ public class RainManageServlet extends HttpServlet {
             //将对象作为参数传给增加的方法！
             Boolean insert = service.Insert(rm);
             //判断是否成功！
+            PrintWriter out = response.getWriter();
             if(insert){
-                response.getWriter().write("<script type='text/javascript'>alert('添加成功！');</script>");
-                //增加成功跳到查询页面
-                response.sendRedirect("index.jsp");
+                out.println("<script type='text/javascript' >alert('添加成功!');</script>");
+                out.println("<script>window.location='index.jsp'</script>");
             }else{
-                response.getWriter().write("<script type='text/javascript'>alert('添加失败！');</script>");
+                out.println("<script type='text/javascript' >alert('添加失败!');</script>");
                 //增加失败跳到查询页面
-                response.sendRedirect("index.jsp");
+                out.println("<script>window.location='index.jsp'</script>");
             }
 
 
